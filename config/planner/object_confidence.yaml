@@ -1,0 +1,34 @@
+# SOAR-GS NBV planner
+planner_name: object_confidence
+type: object_confidence
+
+# Base planner settings
+radius: 0.5
+init_pose: [[0, 0, 1, 0], [-1, 0, 0, 0], [0, -1, 0, 0], [0, 0, 0, 1]]
+robot_size: 0.3
+pitch_angle: null
+sample_num: 100
+max_roi_sample_num: 30
+use_confidence: true
+path_length_factor: 0.5
+
+# Rendering
+render_ratio: 0.5
+pixel_stride: 4
+
+# Utility weights: U(v) = α·I_explore + β·I_quality + γ·I_boundary
+alpha_explore: 1.0
+beta_quality: 1.0
+gamma_boundary: 0.4
+
+# Distance weight half-power
+d0: 3.0
+
+# Feature flags
+use_D_c: true
+use_boundary_propagation: true
+propagation_hops: 2
+
+# Region visit penalty
+region_size: 0.6
+max_visits_before_penalty: 3

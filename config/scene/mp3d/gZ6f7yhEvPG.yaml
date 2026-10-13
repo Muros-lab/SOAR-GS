@@ -1,0 +1,5 @@
+scene_name: mp3d/gZ6f7yhEvPG
+mesh_path: data/mp3d_data/v1/scans/gZ6f7yhEvPG/gZ6f7yhEvPG/matterport_mesh/cc84e75d262344ed8ade6f0e086cc6a0/cc84e75d262344ed8ade6f0e086cc6a0.obj
+scene_id: data/MP3D/v1/tasks/mp3d/gZ6f7yhEvPG/gZ6f7yhEvPG.glb
+has_missing_surface: true
+mesh_up_axis: z

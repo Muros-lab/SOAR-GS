@@ -1,0 +1,30 @@
+# config/main_mp3d.yaml
+# MP3D experiment config (900s budget, 60s record interval)
+
+defaults:
+  - planner: object_confidence
+  - mapper: incremental
+  - simulator: habitat_mp3d
+  - scene: mp3d/GdvgFV5R1Z5
+  - gui: gui
+  - detector: detector
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled  
+
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .
+
+experiment:
+  output_dir: ./experiments
+  exp_id: mp3d
+  run_id: 0
+  budget: 900        # 15 minutes for large-scale MP3D scenes
+  record_interval: 60  # seconds
+  record_rgbd: false
+  record_global_path: true
+
+use_gui: false
+debug: false
+seed: 42

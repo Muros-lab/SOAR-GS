@@ -1,0 +1,27 @@
+defaults:
+  - planner: object_confidence
+  - mapper: incremental
+  - simulator: habitat
+  - scene: replica/office0
+  - gui: gui
+  - detector: detector
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled  
+
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .
+
+experiment:
+  output_dir: ./experiments
+  exp_id: test
+  run_id : 0
+  budget: 420 # seconds (mapping + planning + travel time)
+  record_interval: 60
+  record_rgbd: false
+  record_global_path: true
+
+use_gui: false
+debug: false
+seed: 42

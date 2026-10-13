@@ -1,0 +1,28 @@
+# Runtime dependencies of SOAR-GS (versions of the environment used for the paper experiments).
+# PyTorch 2.1.2 (CUDA 11.8) and habitat-sim 0.2.4 are installed by envs/build.sh.
+numpy==1.26.3
+scipy==1.13.1
+hydra-core==1.3.2
+omegaconf==2.3.0
+PyYAML==6.0.2
+einops==0.8.1
+jaxtyping==0.2.36
+tqdm==4.67.1
+click==8.1.8
+opencv-python==4.6.0.66
+pillow==10.4.0
+matplotlib==3.9.4
+imgviz==1.7.6
+open3d==0.17.0
+trimesh==4.4.1
+numpy-quaternion==2023.0.4
+PyOpenGL==3.1.9
+PyGLM==2.8.2
+glfw==2.9.0
+gdown==5.2.0
+# 2D Gaussian splatting rasterizer (requires nvcc)
+git+https://github.com/liren-jin/diff-gaussian-rasterization_2d@040b89f54e25014b6771c1429c64fc5412e5a0f5
+# YOLO-World (open-vocabulary detection) and EfficientSAM (segmentation)
+ultralytics==8.3.232
+git+https://github.com/ultralytics/CLIP.git@19870eafbf315e6bfbc73fc97935abbd83924416
+git+https://github.com/yformer/EfficientSAM.git@d525f622e6f640acf5a0fc37c7ca1f243da5bde0

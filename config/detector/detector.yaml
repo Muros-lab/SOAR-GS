@@ -1,0 +1,162 @@
+# Object Detector Configuration
+# For SOAR-GS (object-class-aware active reconstruction)
+
+enabled: true  # Enable/disable object detection
+
+# YOLO-World model (open-vocabulary detection)
+yolo_model: yolov8x-worldv2  # or yolov8l-worldv2, yolov8m-worldv2
+weights_dir: ./weights
+
+# EfficientSAM model (segmentation)
+sam_model: vits  # "vits" (small) or "vitt" (tiny) - vitb not available
+
+# Detection parameters
+confidence_threshold: 0.4  # Minimum confidence for detections (lower = more detections)
+
+# Object classes for indoor scenes (office + room)
+# NOTE: Avoid synonyms (e.g. sofa/couch) - they fragment majority voting
+class_names:
+  # Furniture
+  - chair
+  - table
+  - sofa
+  - bed
+  - desk
+  - cabinet
+  - shelf
+  - bookshelf
+  - drawer
+  - nightstand
+  - dresser
+  - wardrobe
+  - armchair
+  - stool
+  - bench
+  - ottoman
+  
+  # Electronics
+  - monitor
+  - tv
+  - computer
+  - laptop
+  - keyboard
+  - mouse
+  - printer
+  - scanner
+  - projector
+  - speaker
+  - router
+  - modem
+  
+  # Kitchen
+  - refrigerator
+  - sink
+  - oven
+  - microwave
+  - toaster
+  - coffee maker
+  - kettle
+  - dishwasher
+  
+  # Bathroom
+  - toilet
+  - bathtub
+  - shower
+  - towel rack
+  
+  # Decor & Lighting
+  - plant
+  - lamp
+  - floor lamp
+  - desk lamp
+  - clock
+  - vase
+  - picture
+  - painting
+  - poster
+  - mirror
+  - curtain
+  - blinds
+  - rug
+  
+  # Office Equipment
+  - whiteboard
+  - bulletin board
+  - filing cabinet
+  - paper shredder
+  - copier
+  
+  # Office Supplies
+  - paper
+  - folder
+  - notebook
+  - binder
+  - pen
+  - pencil
+  - marker
+  - stapler
+  - tape dispenser
+  - scissors
+  - calculator
+  
+  # Containers & Trash
+  - trash can
+  - recycling bin
+  - box
+  - basket
+  - container
+  
+  # Beverages & Tableware
+  - cup
+  - mug
+  - glass
+  - bottle
+  - bowl
+  - plate
+  - tray
+  
+  # Books & Media
+  - book
+  - magazine
+  - newspaper
+  
+  # Personal Items
+  - backpack
+  - bag
+  - briefcase
+  - purse
+  - umbrella
+  - coat
+  - jacket
+  
+  # Tech Accessories
+  - phone
+  - telephone
+  - tablet
+  - charger
+  - headphones
+  - earbuds
+  - cable
+  - power strip
+  - extension cord
+  
+  # Structural (lower priority)
+  - door
+  - window
+  - wall
+  - floor
+  - ceiling
+  - column
+  - pillar
+
+
+# Note: Class weights are computed at runtime based on geometric complexity (D_c)
+# No predefined weights - the system learns importance from scene structure
+
+# Adaptive weighting configuration
+adaptive_weighting:
+  enabled: true
+  # Coarse exploration phase
+  coarse_phase:
+    num_views: 12              # 360 / 12 = 30 degree intervals (better D_c accuracy)
+    # Optional multi-level: [0, 15, -15] for more coverage
